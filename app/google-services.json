@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "831184250657",
+    "firebase_url": "https://ecommerce-25ec0.firebaseio.com",
+    "project_id": "ecommerce-25ec0",
+    "storage_bucket": "ecommerce-25ec0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831184250657:android:8c115c7dfa2f1157",
+        "android_client_info": {
+          "package_name": "com.MuhammadDanyialKhan.matrices_ecommerceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831184250657-gmvtfd7s5sqkht45eqljipfj0f3nfud2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.MuhammadDanyialKhan.matrices_ecommerceapp",
+            "certificate_hash": "c97dfe748f726f9a63f12b6d5a3a8d925d17ef91"
+          }
+        },
+        {
+          "client_id": "831184250657-q3jco2hec2i77r6qo6rhtj9vfspi3daf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmPGphcirP6tp-0D8t-flrC_EHKS-rHqY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831184250657-q3jco2hec2i77r6qo6rhtj9vfspi3daf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/Register_Layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/register"
+    tools:context=".SignUpActivity">
+
+
+    <ProgressBar
+        android:id="@+id/progressBarDialog"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/my_dialog" >
+    </ProgressBar>
+
+
+
+    <ImageView
+        android:id="@+id/Register_appLogo"
+        android:layout_width="@dimen/width300dp"
+        android:layout_height="@dimen/Height100dp"
+        android:src="@drawable/applogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/marginTop200dp"/>
+
+    <EditText
+        android:id="@+id/Register_UserName_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Register_appLogo"
+        android:background="@drawable/strocks"
+        android:padding="@dimen/paddng20dp"
+        android:layout_marginLeft="@dimen/marginLeftRight15dp"
+        android:layout_marginRight="@dimen/marginLeftRight15dp"
+        android:layout_marginBottom="@dimen/marginBottom5dp"
+        android:hint="@string/userName"
+        android:inputType="text"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="@dimen/textSize17sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/Register_phone_no_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Register_UserName_input"
+        android:background="@drawable/strocks"
+        android:padding="@dimen/paddng20dp"
+        android:layout_marginLeft="@dimen/marginLeftRight15dp"
+        android:layout_marginRight="@dimen/marginLeftRight15dp"
+        android:hint="@string/hint_phomeNo"
+        android:inputType="phone"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="@dimen/textSize17sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/Register_password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Register_phone_no_input"
+        android:background="@drawable/strocks"
+        android:padding="@dimen/paddng20dp"
+        android:layout_marginLeft="@dimen/marginLeftRight15dp"
+        android:layout_marginRight="@dimen/marginLeftRight15dp"
+        android:layout_marginTop="@dimen/marginTop6p"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="@dimen/textSize17sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/Register_ConfirmPassword_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Register_password_input"
+        android:background="@drawable/strocks"
+        android:padding="@dimen/paddng20dp"
+        android:layout_marginLeft="@dimen/marginLeftRight15dp"
+        android:layout_marginRight="@dimen/marginLeftRight15dp"
+        android:layout_marginTop="@dimen/marginTop6p"
+        android:hint="@string/hint_Confirmpassword"
+        android:inputType="textPassword"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="@dimen/textSize17sp"
+        android:textStyle="bold"/>
+
+
+
+    <Button
+        android:id="@+id/RegisterButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Register_ConfirmPassword_input"
+        android:layout_marginTop="@dimen/marginBottom5dp"
+        android:layout_marginLeft="@dimen/marginLeftRight15dp"
+        android:layout_marginRight="@dimen/marginLeftRight15dp"
+        android:background="@drawable/buttons"
+        android:padding="@dimen/paddng20dp"
+        android:textAllCaps="false"
+        android:textSize="@dimen/textSize18sp"
+        android:text="@string/Register"
+        android:textColor="@color/White"/>
+
+
+
+
+</RelativeLayout>

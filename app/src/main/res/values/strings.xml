@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Matrices_eCommerceApp</string>
+    <string name="app_start_message">Find, Discover, Choose and Buy anything online.</string>
+    <string name="alreadyHaveanAxxountLogin">Already have an Account? Login</string>
+    <string name="joinNow">Join Now</string>
+    <string name="hint_phomeNo">Phone Number</string>
+    <string name="hint_password">Password</string>
+    <string name="RememberMe">Remember Me</string>
+    <string name="forgetPassword">Forget Password</string>
+    <string name="Login">Login</string>
+    <string name="txtAdmin">I\'am an Admin?</string>
+    <string name="txtNotAdmin">I\'am not Admin</string>
+    <string name="Register">Create Account</string>
+    <string name="userName">User Name</string>
+    <string name="hint_Confirmpassword">Confirm Password</string>
+    <string name="ErrNameIsEmpty">Please Enter your name....</string>
+    <string name="ErrPhoneIsEmpth">Please Enter your Phone Number....</string>
+    <string name="ErrPasswordIsEmpth">Please Enter your Password....</string>
+    <string name="ErrPasswordNotMatch">Password doesn\'t match....</string>
+    <string name="creatingAccount">Please wait, while we are checking the credentials.</string>
+    <string name="successfullLogin">Logged in successfully...</string>
+    <string name="incorrectPassword">Incorrect Password..</string>
+</resources>

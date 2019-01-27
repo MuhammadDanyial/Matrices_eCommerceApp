@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSize22sp">22sp</dimen>
+    <dimen name="marginTop140dp">140dp</dimen>
+    <dimen name="marginEnd80dp">80dp</dimen>
+    <dimen name="wigth220dp">220dp</dimen>
+    <dimen name="radius14dp">14dp</dimen>
+    <dimen name="radius15dp">15dp</dimen>
+    <dimen name="marginBottom10dp">10dp</dimen>
+    <dimen name="marginLeftRight15dp">15dp</dimen>
+    <dimen name="paddng20dp">20dp</dimen>
+    <dimen name="textSize18dp">18dp</dimen>
+    <dimen name="marginBottom5dp">5dp</dimen>
+    <dimen name="Height100dp">100dp</dimen>
+    <dimen name="marginTop200dp">200dp</dimen>
+    <dimen name="textSize17sp">17sp</dimen>
+    <dimen name="width300dp">300dp</dimen>
+    <dimen name="marginTop6p">6dp</dimen>
+    <dimen name="marginTop5dp">5dp</dimen>
+    <dimen name="textSize16sp">16sp</dimen>
+    <dimen name="marginLeft17dp">17dp</dimen>
+    <dimen name="paddng17dp">17</dimen>
+    <dimen name="marginEnd23dp">23dp</dimen>
+    <dimen name="textSize20sp">20sp</dimen>
+    <dimen name="textSize18sp">18sp</dimen>
+    <dimen name="marginEnd10dp">10dp</dimen>
+</resources>
