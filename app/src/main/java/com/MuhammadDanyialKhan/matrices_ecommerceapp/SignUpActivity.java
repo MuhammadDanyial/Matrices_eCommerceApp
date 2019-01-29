@@ -8,15 +8,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.MuhammadDanyialKhan.matrices_ecommerceapp.Model.CountryData;
+import com.MuhammadDanyialKhan.matrices_ecommerceapp.Model.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,23 +36,38 @@ import jp.wasabeef.blurry.Blurry;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    Spinner spinner;
     private Button btnCreateAccount;
-    private EditText txtUserName, txtPassword, txtConfirmPassword, txtPhoneNo;
-    private ProgressBar loadingBar;
-    private Handler hdl;
+    private EditText txtPhoneNo, countryCOde;
     private boolean blurred=false;
+    String code;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
         btnCreateAccount=findViewById(R.id.RegisterButton);
-        txtUserName=findViewById(R.id.Register_UserName_input);
         txtPhoneNo=findViewById(R.id.Register_phone_no_input);
-        txtPassword=findViewById(R.id.Register_password_input);
-        txtConfirmPassword=findViewById(R.id.Register_ConfirmPassword_input);
-        loadingBar = findViewById(R.id.progressBarDialog);
-        hdl = new Handler();
+        countryCOde=findViewById(R.id.txtcountryCode);
+
+
+        spinner = findViewById(R.id.spinnerCountries);
+        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                code = CountryData.countryAreaCodes[spinner.getSelectedItemPosition()];
+                countryCOde.setText("+" + code);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
 
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,35 +79,26 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void createAccount() {
-        String name=txtUserName.getText().toString().trim();
         String phone=txtPhoneNo.getText().toString().trim();
-        String password=txtPassword.getText().toString();
-        String confirm=txtConfirmPassword.getText().toString();
 
-        if(name.isEmpty()){
-            Toast.makeText(SignUpActivity.this, R.string.ErrNameIsEmpty, Toast.LENGTH_LONG).show();
-        }
-        else if(phone.isEmpty()){
+        if(phone.isEmpty()){
             Toast.makeText(SignUpActivity.this, R.string.ErrPhoneIsEmpth, Toast.LENGTH_LONG).show();
-        }
-        else if(password.isEmpty()){
-            Toast.makeText(SignUpActivity.this, R.string.ErrPhoneIsEmpth, Toast.LENGTH_LONG).show();
-        }
-        else if(!confirm.equals(password)){
-            Toast.makeText(SignUpActivity.this, R.string.ErrPasswordNotMatch, Toast.LENGTH_LONG).show();
         }
         else{
-            txtUserName.setEnabled(false);
-            txtPassword.setEnabled(false);
-            txtConfirmPassword.setEnabled(false);
-            txtPhoneNo.setEnabled(false);
-            btnCreateAccount.setEnabled(false);
-            velidatePhoneNumber(phone,name, password);
+            phone = "+" + code + phone;
+
+            Intent intent = new Intent(SignUpActivity.this, PhoneVerificationActivity.class);
+            intent.putExtra("phone", phone);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
     }
 
     private void velidatePhoneNumber(final String phone, final String name, final String password) {
-        final DatabaseReference rootRef;
+
+
+
+       final DatabaseReference rootRef;
         rootRef = FirebaseDatabase.getInstance().getReference();
         rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -104,26 +117,12 @@ public class SignUpActivity extends AppCompatActivity {
                                     if(task.isSuccessful()){
                                         Toast.makeText(SignUpActivity.this, "Account Successfully Created..",Toast.LENGTH_LONG).show();
                                        // blurall();
-                                        txtUserName.setEnabled(true);
-                                        txtPassword.setEnabled(true);
-                                        txtConfirmPassword.setEnabled(true);
-                                        txtPhoneNo.setEnabled(true);
-                                        btnCreateAccount.setEnabled(true);
-                                        txtUserName.setText(null);
-                                        txtPassword.setText(null);
-                                        txtConfirmPassword.setText(null);
-                                        txtPhoneNo.setText(null);
                                         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                         startActivity(intent);
                                     }
                                     else {
                                         Toast.makeText(SignUpActivity.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
                                         //blurall();
-                                        txtUserName.setEnabled(true);
-                                        txtPassword.setEnabled(true);
-                                        txtConfirmPassword.setEnabled(true);
-                                        txtPhoneNo.setEnabled(true);
-                                        btnCreateAccount.setEnabled(true);
                                     }
                                 }
                             });
@@ -131,11 +130,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(SignUpActivity.this, "This "+phone+" already exists",Toast.LENGTH_LONG).show();
-                    txtUserName.setEnabled(true);
-                    txtPassword.setEnabled(true);
-                    txtConfirmPassword.setEnabled(true);
-                    txtPhoneNo.setEnabled(true);
-                    btnCreateAccount.setEnabled(true);
+
                   //  blurall();
                     Toast.makeText(SignUpActivity.this, "Please try agaain using another Phone number.",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(SignUpActivity.this, MainActivity.class);

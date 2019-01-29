@@ -20,4 +20,21 @@
     <string name="creatingAccount">Please wait, while we are checking the credentials.</string>
     <string name="successfullLogin">Logged in successfully...</string>
     <string name="incorrectPassword">Incorrect Password..</string>
+    <string name="email">Email Address</string>
+    <string name="ErrEmptyEmailAddress">Please Enter Email Address...</string>
+    <string name="phoneVarificationMessage">I sent you a code, it will be detected automatically but if it is not detected you can put it below manually as well</string>
+    <string name="waitMessage">Wait for the code I sent you...</string>
+    <string name="enterCodeMsg">enter code</string>
+    <string name="ContinueWithPhoneNumber">Continue with phone number</string>
+    <string name="LoginWithGoogleAccount">Login with Google Account</string>
+    <string name="Logincontinue">Continue</string>
+    <string name="Country">Choose a Country</string>
+    <string name="demoCode">+92</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="google_status_fmt">Google User: %s</string>
+    <string name="google_title_text">Google Sign In</string>
+
+    <string name="desc_firebase_lockup">Firebase logo and name</string>
 </resources>

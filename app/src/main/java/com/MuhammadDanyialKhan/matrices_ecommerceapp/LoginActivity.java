@@ -10,26 +10,35 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.MuhammadDanyialKhan.matrices_ecommerceapp.Model.Users;
+import com.MuhammadDanyialKhan.matrices_ecommerceapp.Prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rey.material.widget.CheckBox;
+
+import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
     private Button btnLogin;
     private EditText phoneNo, password;
-    private String parentDBname="Users";
+    private static final String parentDBname="Users";
+    private CheckBox checkBoxRememberMe;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btnLogin=findViewById(R.id.LoginButton);
+        checkBoxRememberMe = (CheckBox)findViewById(R.id.Login_rememberme_chkb);
 
         phoneNo=findViewById(R.id.login_phone_no_input);
         password=findViewById(R.id.login_password_input);
+
+        Paper.init(this);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +52,12 @@ public class LoginActivity extends AppCompatActivity {
                 else if(_password.isEmpty()){
                     Toast.makeText(LoginActivity.this, R.string.ErrPasswordIsEmpth, Toast.LENGTH_LONG).show();
                 }else{
+
+                    if(checkBoxRememberMe.isChecked()) {
+                        Paper.book().write(Prevalent.UserPhoneKey, phone);
+                        Paper.book().write(Prevalent.UserPasswordKey, _password);
+                    }
+
                     final DatabaseReference rootRef;
                     rootRef = FirebaseDatabase.getInstance().getReference();
                     rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -70,9 +85,13 @@ public class LoginActivity extends AppCompatActivity {
 
                         }
                     });
+
+
                 }
             }
         });
 
     }
+
+
 }

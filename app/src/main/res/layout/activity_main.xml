@@ -34,7 +34,7 @@
         />
 
     <Button
-        android:id="@+id/main_login_button"
+        android:id="@+id/main_google_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -47,21 +47,21 @@
         android:textAllCaps="false"
         android:textSize="@dimen/textSize18sp"
         android:layout_alignParentLeft="true"
-        android:text="@string/alreadyHaveanAxxountLogin"
+        android:text="@string/LoginWithGoogleAccount"
         android:textColor="@color/White"/>
     <Button
-        android:id="@+id/main_join_now_button"
+        android:id="@+id/main_join_now_with_Phone_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/marginBottom5dp"
-        android:layout_above="@+id/main_login_button"
+        android:layout_above="@+id/main_google_button"
         android:layout_marginLeft="@dimen/marginLeftRight15dp"
         android:layout_marginRight="@dimen/marginLeftRight15dp"
         android:background="@drawable/strocks"
         android:padding="@dimen/paddng20dp"
         android:textAllCaps="false"
         android:textSize="@dimen/textSize18sp"
-        android:text="@string/joinNow"
+        android:text="@string/ContinueWithPhoneNumber"
         android:textColor="@color/White"/>
 
 

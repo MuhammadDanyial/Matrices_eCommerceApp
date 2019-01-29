@@ -4,6 +4,7 @@ package com.MuhammadDanyialKhan.matrices_ecommerceapp.Model;
 public class Users {
     private String name, password, phone;
 
+
     public Users(String name, String password, String phone) {
         this.name = name;
         this.password = password;

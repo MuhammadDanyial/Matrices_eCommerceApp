@@ -56,7 +56,7 @@
         android:layout_below="@+id/login_password_input"
         android:layout_marginTop="@dimen/marginTop5dp">
         <com.rey.material.widget.CheckBox
-            android:id="@+id/rememberme_chkb"
+            android:id="@+id/Login_rememberme_chkb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.CheckBox"
