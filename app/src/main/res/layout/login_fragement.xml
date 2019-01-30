@@ -3,10 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:background="@drawable/screenbg"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/login"
-    tools:context=".LoginActivity">
+    android:layout_height="match_parent">
+
 
     <ImageView
         android:id="@+id/Login_appLogo"
@@ -14,8 +15,8 @@
         android:layout_height="@dimen/Height100dp"
         android:src="@drawable/applogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/marginTop200dp"/>
-    
+        android:layout_marginTop="@dimen/marginTop150dp"/>
+
     <EditText
         android:id="@+id/login_phone_no_input"
         android:layout_width="match_parent"
@@ -27,10 +28,9 @@
         android:layout_marginRight="@dimen/marginLeftRight15dp"
         android:hint="@string/hint_phomeNo"
         android:inputType="phone"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="@dimen/textSize17sp"
-        android:textStyle="bold"/>
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="@dimen/textSize17sp"/>
     <EditText
         android:id="@+id/login_password_input"
         android:layout_width="match_parent"
@@ -43,10 +43,9 @@
         android:layout_marginTop="@dimen/marginTop6p"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="@dimen/textSize17sp"
-        android:textStyle="bold"/>
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="@dimen/textSize17sp"/>
 
     <LinearLayout
         android:id="@+id/linearLayout_login"
@@ -123,5 +122,8 @@
         android:layout_alignParentLeft="true"
         android:visibility="invisible"/>
 
-    
+
+
+
+
 </RelativeLayout>

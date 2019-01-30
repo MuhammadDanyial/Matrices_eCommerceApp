@@ -37,4 +37,10 @@
     <string name="google_title_text">Google Sign In</string>
 
     <string name="desc_firebase_lockup">Firebase logo and name</string>
+    <string name="title_activity_login_or_signup">LoginOrSignup</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

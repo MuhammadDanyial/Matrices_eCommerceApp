@@ -1,29 +1,26 @@
-package com.MuhammadDanyialKhan.matrices_ecommerceapp;
+package com.MuhammadDanyialKhan.matrices_ecommerceapp.Tabs;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.MuhammadDanyialKhan.matrices_ecommerceapp.MainActivity;
 import com.MuhammadDanyialKhan.matrices_ecommerceapp.Model.CountryData;
-import com.MuhammadDanyialKhan.matrices_ecommerceapp.Model.Users;
+import com.MuhammadDanyialKhan.matrices_ecommerceapp.PhoneVerificationActivity;
+import com.MuhammadDanyialKhan.matrices_ecommerceapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,25 +31,25 @@ import java.util.HashMap;
 
 import jp.wasabeef.blurry.Blurry;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignupTab extends Fragment {
 
     Spinner spinner;
     private Button btnCreateAccount;
     private EditText txtPhoneNo, countryCOde;
     private boolean blurred=false;
     String code;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.signup_lragment, container, false);
 
-        btnCreateAccount=findViewById(R.id.RegisterButton);
-        txtPhoneNo=findViewById(R.id.Register_phone_no_input);
-        countryCOde=findViewById(R.id.txtcountryCode);
+        btnCreateAccount=(Button) view.findViewById(R.id.RegisterButton);
+        txtPhoneNo=(EditText) view.findViewById(R.id.Register_phone_no_input);
+        countryCOde=(EditText) view.findViewById(R.id.txtcountryCode);
 
-
-        spinner = findViewById(R.id.spinnerCountries);
-        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
+        spinner = (Spinner) view.findViewById(R.id.spinnerCountries);
+        spinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -76,20 +73,22 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        return view;
     }
+
+
 
     private void createAccount() {
         String phone=txtPhoneNo.getText().toString().trim();
 
         if(phone.isEmpty()){
-            Toast.makeText(SignUpActivity.this, R.string.ErrPhoneIsEmpth, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.ErrPhoneIsEmpth, Toast.LENGTH_LONG).show();
         }
         else{
             phone = "+" + code + phone;
 
-            Intent intent = new Intent(SignUpActivity.this, PhoneVerificationActivity.class);
+            Intent intent = new Intent(getActivity(), PhoneVerificationActivity.class);
             intent.putExtra("phone", phone);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
     }
@@ -98,7 +97,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-       final DatabaseReference rootRef;
+        final DatabaseReference rootRef;
         rootRef = FirebaseDatabase.getInstance().getReference();
         rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -115,13 +114,13 @@ public class SignUpActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(SignUpActivity.this, "Account Successfully Created..",Toast.LENGTH_LONG).show();
-                                       // blurall();
-                                        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                                        Toast.makeText(getActivity(), "Account Successfully Created..",Toast.LENGTH_LONG).show();
+                                        // blurall();
+                                        Intent intent = new Intent(getActivity(), LoginTab.class);
                                         startActivity(intent);
                                     }
                                     else {
-                                        Toast.makeText(SignUpActivity.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getActivity(), task.getException().getMessage(),Toast.LENGTH_LONG).show();
                                         //blurall();
                                     }
                                 }
@@ -129,11 +128,11 @@ public class SignUpActivity extends AppCompatActivity {
 
                 }
                 else {
-                    Toast.makeText(SignUpActivity.this, "This "+phone+" already exists",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "This "+phone+" already exists",Toast.LENGTH_LONG).show();
 
-                  //  blurall();
-                    Toast.makeText(SignUpActivity.this, "Please try agaain using another Phone number.",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                    //  blurall();
+                    Toast.makeText(getActivity(), "Please try agaain using another Phone number.",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
                 }
             }
@@ -145,19 +144,19 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void blurall() {
+    private void blurall(View view) {
 
 
         if (blurred) {
-            Blurry.delete((ViewGroup) findViewById(R.id.Register_Layout));
+            Blurry.delete((ViewGroup) view.findViewById(R.id.Register_Layout));
         } else {
             long startMs = System.currentTimeMillis();
-            Blurry.with(SignUpActivity.this)
+            Blurry.with(getActivity())
                     .radius(25)
                     .sampling(2)
                     .async()
                     .animate(500)
-                    .onto((ViewGroup) findViewById(R.id.Register_Layout));
+                    .onto((ViewGroup) view.findViewById(R.id.Register_Layout));
             Log.d(getString(R.string.app_name),
                     "TIME " + String.valueOf(System.currentTimeMillis() - startMs) + "ms");
         }
@@ -166,4 +165,5 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     }
+
 }

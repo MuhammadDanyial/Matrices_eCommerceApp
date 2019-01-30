@@ -39,4 +39,13 @@
     <dimen name="icon_bottom_margin">24dp</dimen>
     <dimen name="title_bottom_margin">16dp</dimen>
     <dimen name="field_width_standard">160dp</dimen>
+    <dimen name="marginEnd50dp">50dp</dimen>
+    <dimen name="wigth260dp">260dp</dimen>
+    <dimen name="wigth280dp">280dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="marginTop100dp">100dp</dimen>
 </resources>

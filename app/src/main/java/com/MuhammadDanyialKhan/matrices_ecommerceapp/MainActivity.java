@@ -26,14 +26,15 @@ public class MainActivity extends AppCompatActivity {
         GoogleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, GoogleSignin.class);
+                startActivity(intent);
             }
         });
 
         PhoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginOrSignup.class);
                 startActivity(intent);
             }
         });

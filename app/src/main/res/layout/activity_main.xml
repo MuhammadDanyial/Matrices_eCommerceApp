@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/welcome"
+    android:background="@drawable/screenbg"
     tools:context=".MainActivity">
 
    <ImageView
@@ -18,13 +18,13 @@
 
     <TextView
         android:id="@+id/app_slogan"
-        android:layout_width="@dimen/wigth220dp"
+        android:layout_width="@dimen/wigth280dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="@dimen/marginEnd80dp"
-        android:layout_marginRight="@dimen/marginEnd80dp"
+        android:layout_marginEnd="@dimen/marginEnd50dp"
+        android:layout_marginRight="@dimen/marginEnd50dp"
         android:layout_marginTop="@dimen/marginTop140dp"
         android:text="@string/app_start_message"
         android:textAlignment="center"
@@ -62,7 +62,7 @@
         android:textAllCaps="false"
         android:textSize="@dimen/textSize18sp"
         android:text="@string/ContinueWithPhoneNumber"
-        android:textColor="@color/White"/>
+        android:textColor="@color/colorPrimary"/>
 
 
 </RelativeLayout>
