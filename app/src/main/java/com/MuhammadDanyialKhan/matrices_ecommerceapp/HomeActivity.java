@@ -8,8 +8,6 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import io.paperdb.Paper;
-
 public class HomeActivity extends AppCompatActivity {
 
     private Button logout;

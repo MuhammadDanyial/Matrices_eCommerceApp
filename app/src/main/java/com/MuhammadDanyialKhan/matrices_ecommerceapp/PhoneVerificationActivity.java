@@ -35,9 +35,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_verification);
-       // name = getIntent().getStringExtra("name");
         phone = getIntent().getStringExtra("phone");
-       // password = getIntent().getStringExtra("password");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -74,20 +72,6 @@ public class PhoneVerificationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                          /*  Users users = new Users(name, phone, password);
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(PhoneVerificationActivity.this, "Loggedin Successfully..", Toast.LENGTH_LONG).show();
-
-                                    }else{
-                                        Toast.makeText(PhoneVerificationActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });*/
                             Intent intent = new Intent(PhoneVerificationActivity.this, HomeActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);

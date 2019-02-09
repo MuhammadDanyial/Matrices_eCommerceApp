@@ -18,7 +18,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.rey.material.widget.CheckBox;
 
 import io.paperdb.Paper;
 
@@ -60,7 +59,6 @@ public class LoginTab extends Fragment {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                //we can return to another activity
                                 Intent intent = new Intent(getContext(), HomeActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
@@ -70,40 +68,6 @@ public class LoginTab extends Fragment {
                         }
                     });
 
-                   /* if(checkBoxRememberMe.isChecked()) {
-                        Paper.book().write(Prevalent.UserPhoneKey, phone);
-                        Paper.book().write(Prevalent.UserPasswordKey, _password);
-                    }
-
-                    final DatabaseReference rootRef;
-                    rootRef = FirebaseDatabase.getInstance().getReference();
-                    rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.child(parentDBname).child(phone).exists()){
-                                Users users = dataSnapshot.child(parentDBname).child(phone).getValue(Users.class);
-                                if(users.getPhone().equals(phone)){
-                                    if(users.getPassword().equals(_password)){
-                                        Toast.makeText(getActivity(), R.string.successfullLogin, Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(getActivity(), HomeActivity.class);
-                                        startActivity(intent);
-                                    }
-                                    else{
-                                        Toast.makeText(getActivity(), R.string.incorrectPassword, Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            }else {
-                                Toast.makeText(getActivity(), "Phone number not found..", Toast.LENGTH_LONG).show();
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-
-*/
                 }
             }
         });
