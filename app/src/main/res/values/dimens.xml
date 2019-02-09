@@ -48,4 +48,6 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="marginTop100dp">100dp</dimen>
+    <dimen name="marginLeftRight5dp">5dp</dimen>
+    <dimen name="marginTop50dp">50dp</dimen>
 </resources>

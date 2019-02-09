@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Register_Layout"
     android:background="@drawable/screenbg"
     android:layout_width="match_parent"
@@ -12,24 +10,35 @@
         android:layout_width="@dimen/width300dp"
         android:layout_height="@dimen/Height100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/marginTop200dp"
+        android:layout_marginTop="@dimen/marginTop50dp"
         android:src="@drawable/applogo" />
+
+
+    <EditText
+        android:id="@+id/signup_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Register_appLogo"
+        android:background="@drawable/strocks"
+        android:hint="@string/userName"
+        android:layout_marginLeft="@dimen/marginLeftRight15dp"
+        android:layout_marginTop="@dimen/marginBottom5dp"
+        android:layout_marginRight="@dimen/marginLeftRight15dp"
+        android:inputType="text"
+        android:padding="@dimen/paddng20dp"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="@dimen/textSize17sp" />
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Register_appLogo"
+        android:layout_marginTop="@dimen/marginBottom5dp"
+        android:layout_below="@id/signup_userName"
         android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/spinnerCountries"
-            style="@android:style/Widget.Holo.Light.Spinner"
-            android:spinnerMode="dropdown"
-            android:layout_width="@dimen/Height100dp"
-            android:layout_height="wrap_content"
-            android:prompt="@string/Country"
-            android:padding="@dimen/paddng20dp" />
         <EditText
             android:id="@+id/txtcountryCode"
             android:layout_width="@dimen/width90dp"
@@ -38,13 +47,15 @@
             android:textColor="@color/colorPrimary"
             android:background="@drawable/strocks"
             android:padding="@dimen/paddng20dp"
+            android:layout_marginLeft="@dimen/marginLeftRight15dp"
+            android:layout_marginRight="@dimen/marginLeftRight5dp"
             android:enabled="false"/>
 
         <EditText
             android:id="@+id/Register_phone_no_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/marginLeftRight10dp"
+            android:layout_marginRight="@dimen/marginLeftRight15dp"
             android:background="@drawable/strocks"
             android:hint="@string/hint_phomeNo"
             android:inputType="phone"
@@ -54,11 +65,43 @@
             android:textSize="@dimen/textSize17sp" />
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/signup_txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:background="@drawable/strocks"
+        android:hint="@string/hint_password"
+        android:layout_marginLeft="@dimen/marginLeftRight15dp"
+        android:layout_marginTop="@dimen/marginBottom5dp"
+        android:layout_marginRight="@dimen/marginLeftRight15dp"
+        android:inputType="textPassword"
+        android:padding="@dimen/paddng20dp"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="@dimen/textSize17sp" />
+
+    <EditText
+        android:id="@+id/signup_txt_confirm_Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup_txtPassword"
+        android:background="@drawable/strocks"
+        android:hint="@string/hint_Confirmpassword"
+        android:layout_marginLeft="@dimen/marginLeftRight15dp"
+        android:layout_marginTop="@dimen/marginBottom5dp"
+        android:layout_marginRight="@dimen/marginLeftRight15dp"
+        android:inputType="textPassword"
+        android:padding="@dimen/paddng20dp"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="@dimen/textSize17sp" />
+
     <Button
         android:id="@+id/RegisterButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayout"
+        android:layout_below="@id/signup_txt_confirm_Password"
         android:layout_marginLeft="@dimen/marginLeftRight15dp"
         android:layout_marginTop="@dimen/marginBottom5dp"
         android:layout_marginRight="@dimen/marginLeftRight15dp"

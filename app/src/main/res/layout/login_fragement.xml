@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:background="@drawable/screenbg"
     android:layout_width="match_parent"
@@ -17,25 +15,44 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/marginTop150dp"/>
 
-    <EditText
-        android:id="@+id/login_phone_no_input"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Login_appLogo"
-        android:background="@drawable/strocks"
-        android:padding="@dimen/paddng20dp"
-        android:layout_marginLeft="@dimen/marginLeftRight15dp"
-        android:layout_marginRight="@dimen/marginLeftRight15dp"
-        android:hint="@string/hint_phomeNo"
-        android:inputType="phone"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary"
-        android:textSize="@dimen/textSize17sp"/>
+        android:layout_marginTop="@dimen/marginBottom5dp"
+        android:layout_below="@id/Login_appLogo"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/txtcountryCode"
+            android:layout_width="@dimen/width90dp"
+            android:layout_height="wrap_content"
+            android:text="@string/demoCode"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/strocks"
+            android:padding="@dimen/paddng20dp"
+            android:layout_marginLeft="@dimen/marginLeftRight15dp"
+            android:layout_marginRight="@dimen/marginLeftRight5dp"
+            android:enabled="false"/>
+
+        <EditText
+            android:id="@+id/LOGIN_phone_no_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/marginLeftRight15dp"
+            android:background="@drawable/strocks"
+            android:hint="@string/hint_phomeNo"
+            android:inputType="phone"
+            android:padding="@dimen/paddng20dp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="@dimen/textSize17sp" />
+    </LinearLayout>
     <EditText
         android:id="@+id/login_password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login_phone_no_input"
+        android:layout_below="@+id/linearLayout"
         android:background="@drawable/strocks"
         android:padding="@dimen/paddng20dp"
         android:layout_marginLeft="@dimen/marginLeftRight15dp"
@@ -54,18 +71,6 @@
         android:orientation="horizontal"
         android:layout_below="@+id/login_password_input"
         android:layout_marginTop="@dimen/marginTop5dp">
-        <com.rey.material.widget.CheckBox
-            android:id="@+id/Login_rememberme_chkb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/Material.Drawable.CheckBox"
-            android:text="@string/RememberMe"
-            android:textColor="@color/colorPrimaryDark"
-            app:cbd_strokeColor="@color/colorPrimaryDark"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/textSize16sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="@dimen/marginLeft17dp"/>
         <TextView
             android:id="@+id/forget_password_login"
             android:layout_width="wrap_content"
@@ -74,7 +79,8 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/textSize17sp"
             android:textStyle="bold"
-            android:layout_marginLeft="@dimen/marginEnd80dp"/>
+            android:layout_marginLeft="@dimen/marginLeftRight15dp"
+            android:layout_marginRight="@dimen/marginLeftRight15dp"/>
 
     </LinearLayout>
 
